@@ -8,6 +8,7 @@ import { HttpModule } from "@angular/http";
 import { ChartsModule } from 'ng2-charts';
 import { ResponseTimeComponent } from './dashboard/response-time/response-time.component';
 import { ProductHealthComponent } from './dashboard/product-health/product-health.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProductHealthComponent } from './dashboard/product-health/product-healt
     ProductHealthComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     HttpModule,
     ChartsModule
