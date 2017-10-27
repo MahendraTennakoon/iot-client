@@ -7,13 +7,15 @@ import { ProductListComponent } from './dashboard/product-list/product-list.comp
 import { HttpModule } from "@angular/http";
 import { ChartsModule } from 'ng2-charts';
 import { ResponseTimeComponent } from './dashboard/response-time/response-time.component';
+import { ProductHealthComponent } from './dashboard/product-health/product-health.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     ProductListComponent,
-    ResponseTimeComponent
+    ResponseTimeComponent,
+    ProductHealthComponent
   ],
   imports: [
     BrowserModule,
