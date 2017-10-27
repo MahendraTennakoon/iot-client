@@ -1,3 +1,16 @@
-<p>
-  product-list works!
-</p>
+<table id="products">
+  <thead>
+    <tr>
+      <th>Product ID</th>
+      <th>Response Time (ms)</th>
+      <th>Health</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let product of products" (click)="showDialog(product)">
+      <td>{{ product._id }}</td>
+      <td>{{ product.responseTime }}</td>
+      <td>{{ product.health }}</td>
+    </tr>
+  </tbody>
+</table>

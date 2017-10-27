@@ -1,0 +1,40 @@
+#products {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: #FEC44F;
+}
+
+#products td, #products th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    cursor: pointer;
+}
+
+#products tr:hover {
+    background-color: #fe7b4f;
+    color: black;
+}
+
+#products th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.red {
+    color: black;
+    background-color: red;
+}
+
+.amber {
+    color: black;
+    background-color: gold;
+}
+
+.green {
+    color: black;
+    background-color: green;
+}

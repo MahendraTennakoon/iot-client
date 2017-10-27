@@ -19,4 +19,8 @@ export class ProductListComponent implements OnInit{
             this.products = data;
         });
     }
+
+    showDialog(item): void {
+        alert("Response time: " + item.responseTime + "ms.\n" + "Health: " + item.health);
+    }
 }
