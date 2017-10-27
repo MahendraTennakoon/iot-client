@@ -13,7 +13,7 @@ export class ResponseTimeComponent implements OnInit {
 
   products: Product[];
   timestamps: number[] = [];
-  domElements: number[] = [];
+  responseTimes: number[] = [];
 
   public lineChartLabels: Array<any> = [];
 
@@ -67,7 +67,7 @@ export class ResponseTimeComponent implements OnInit {
   ];
 
   public lineChartData: Array<any> = [
-    { data: this.domElements, label: 'Equella' }
+    { data: this.responseTimes, label: 'Equella' }
   ];
 
   public lineChartLegend: boolean = true;
@@ -79,7 +79,7 @@ export class ResponseTimeComponent implements OnInit {
         this.products = data;
         for (let test_result of data) {
           this.timestamps.push(test_result.timestamp);
-          this.domElements.push(test_result.responseTime);
+          this.responseTimes.push(test_result.responseTime);
         }
 
         this.lineChartLabels = this.timestamps;
