@@ -1,6 +1,6 @@
 export class Product {
-    productId: string;
+    _id: string;
     health: string;
-    healthLastHour: number[];
-    healthStatusTimestamps: string[];
+    responseTime: number;
+    timestamp: number;
 }

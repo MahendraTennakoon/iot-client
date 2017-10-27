@@ -1,33 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardService } from '../dashboard.service';
+import { ProductService } from "../product.service";
 import { DatePipe } from '@angular/common';
+import { Product } from "../product";
 
 @Component({
   selector: 'app-response-time',
   templateUrl: './response-time.component.html',
   styleUrls: ['./response-time.component.css'],
-  providers: [DashboardService]
+  providers: [ProductService]
 })
 export class ResponseTimeComponent implements OnInit {
 
+  products: Product[];
   timestamps: number[] = [];
   domElements: number[] = [];
 
   public lineChartLabels: Array<any> = [];
 
-  constructor(private dashboardService: DashboardService) { }
-
-  getTestResults() {
-    this.dashboardService.getLoadTimes()
-      .subscribe(res => {
-        for (let test_result of res) {
-          this.timestamps.push(test_result.timestamp);
-          this.domElements.push(test_result.responseTime);
-        }
-
-        this.lineChartLabels = this.timestamps;
-      });
-  }
+  constructor(private productService: ProductService) { }
 
   public lineChartOptions: any = {
     responsive: true,
@@ -84,7 +74,15 @@ export class ResponseTimeComponent implements OnInit {
   public lineChartType: string = 'line';
 
   ngOnInit() {
-    this.getTestResults();
-  }
+    this.productService.getProducts()
+    .subscribe( data => {
+        this.products = data;
+        for (let test_result of data) {
+          this.timestamps.push(test_result.timestamp);
+          this.domElements.push(test_result.responseTime);
+        }
 
+        this.lineChartLabels = this.timestamps;
+    });
+  }
 }
