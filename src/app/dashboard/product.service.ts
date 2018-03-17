@@ -6,6 +6,7 @@ import "rxjs/add/operator/map";
 
 import { Product } from "./product";
 import { MetricsWeekly } from "./metrics_weekly";
+import { Customer } from "./customer";
 import { Config } from "../shared/config";
 
 @Injectable()
@@ -26,6 +27,15 @@ export class ProductService {
     headers.append("Content-Type", "application/json");
     return this.http
       .get(Config.weeklyMetrics, { headers: headers })
+      .map(res => res.json())
+      .catch(this.handleErrors);
+  }
+
+  getCustomers(): Observable<Customer[]> {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    return this.http
+      .get(Config.customers, { headers: headers })
       .map(res => res.json())
       .catch(this.handleErrors);
   }
