@@ -6,4 +6,6 @@ export class Customer {
   registered: string;
   phone: string;
   battery: number;
+  latitude: number;
+  longitude: number;
 }

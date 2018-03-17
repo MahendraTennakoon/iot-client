@@ -29,9 +29,39 @@
   </tbody>
 </table>
 
-<h1 style="text-align: center; color: #F4EB9F">Heat Map and Anomalies</h1>
+<h1 style="text-align: center; color: #F4EB9F">Heat Map</h1>
 <agm-map [latitude]="lat" [longitude]="lng">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
   <agm-marker [latitude]="lat2" [longitude]="lng2"></agm-marker>
   <agm-marker [latitude]="lat3" [longitude]="lng3"></agm-marker>
 </agm-map>
+
+<h1 style="text-align: center; color: #F4EB9F">Anomalies</h1>
+<table id="products">
+  <thead>
+    <tr>
+      <th>Customer ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Registered Date</th>
+      <th>Phone</th>
+      <th>Device Battery</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Predicted Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers" (click)="showDialog(customer)">
+      <td>{{ customer._id }}</td>
+      <td>{{ customer.name.first }}</td>
+      <td>{{ customer.name.last }}</td>
+      <td>{{ customer.registered }}</td>
+      <td>{{ customer.phone }}</td>
+      <td>{{ customer.battery }} %</td>
+      <td>{{ customer.latitude }}</td>
+      <td>{{ customer.longitude }}</td>
+      <td>{{ customer.isActive ? 'Leakage': 'Faulty Device' }}</td>
+    </tr>
+  </tbody>
+</table>
