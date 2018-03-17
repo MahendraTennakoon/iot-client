@@ -14,6 +14,9 @@ export class ProductListComponent implements OnInit {
   products: Product[];
   customers: Customer[];
 
+  lat: number = 51.678418;
+  lng: number = 7.809007;
+
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {

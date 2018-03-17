@@ -47,3 +47,6 @@
 .btn:hover {
   background: #3cb0fd;
 }
+agm-map {
+  height: 500px;
+}
