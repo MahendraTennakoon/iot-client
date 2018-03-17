@@ -5,26 +5,33 @@ import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 
 import { Product } from "./product";
+import { MetricsWeekly } from "./metrics_weekly";
 import { Config } from "../shared/config";
 
 @Injectable()
 export class ProductService {
+  constructor(private http: Http) {}
 
-    constructor(private http: Http) {}
+  getProducts(): Observable<Product[]> {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    return this.http
+      .get(Config.apiUrl, { headers: headers })
+      .map(res => res.json())
+      .catch(this.handleErrors);
+  }
 
-    getProducts(): Observable<Product[]> {
-        let headers = new Headers();
-        headers.append("Content-Type", "application/json");
-        return this.http.get(
-            Config.apiUrl, 
-            { headers: headers }
-        )
-        .map(res => res.json())
-        .catch(this.handleErrors)
-    }
+  getWeeklyMetrics(): Observable<MetricsWeekly[]> {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    return this.http
+      .get(Config.weeklyMetrics, { headers: headers })
+      .map(res => res.json())
+      .catch(this.handleErrors);
+  }
 
-    handleErrors(error: Response) {
-        console.log(JSON.stringify(error.json()));
-        return Observable.throw(error);
-    }
+  handleErrors(error: Response) {
+    console.log(JSON.stringify(error.json()));
+    return Observable.throw(error);
+  }
 }
