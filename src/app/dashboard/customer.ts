@@ -5,4 +5,5 @@ export class Customer {
   name: object;
   registered: string;
   phone: string;
+  battery: number;
 }

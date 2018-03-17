@@ -9,6 +9,7 @@
       <th>Last Name</th>
       <th>Registered Date</th>
       <th>Phone</th>
+      <th>Device Battery</th>
       <th></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
       <td>{{ customer.name.last }}</td>
       <td>{{ customer.registered }}</td>
       <td>{{ customer.phone }}</td>
+      <td>{{ customer.battery }} %</td>
       <td>
         <button style="width: 70px">{{ customer.isActive? 'Stop': 'Resume' }}</button>
       </td>
