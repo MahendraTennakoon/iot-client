@@ -14,8 +14,12 @@ export class ProductListComponent implements OnInit {
   products: Product[];
   customers: Customer[];
 
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: number = 6.929402;
+  lng: number = 79.982487;
+  lat2: number = 6.987638;
+  lng2: number = 80.080434;
+  lat3: number = 7.698203;
+  lng3: number = 81.406908;
 
   constructor(private productService: ProductService) {}
 
