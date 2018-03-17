@@ -1,0 +1,38 @@
+<body>
+  <br>
+  <h1 style="text-align: center; color: rgb(16, 131, 64)">Test User</h1>
+  <div style="text-align:center">
+    <ngx-gauge [type]="gaugeType" [value]="gaugeValue" [label]="gaugeLabel" [append]="gaugeAppendText" [thick]="thick" [size]=550>
+    </ngx-gauge>
+    <h2>Predicted Monthly Bill : Rs.650 | 190 Units</h2>
+    <hr>
+  </div>
+      <h4>Usage History : Unit Based</h4>
+      <div>
+          <div style="display: block">
+            <canvas baseChart
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+       
+        
+        <h4>Usage History : Price Based</h4>
+      <div>
+          <div style="display: block">
+            <canvas baseChart
+                    [datasets]="barChartPriceData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+</body>

@@ -10,6 +10,8 @@ import { ResponseTimeComponent } from "./dashboard/response-time/response-time.c
 import { ProductHealthComponent } from "./dashboard/product-health/product-health.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { AgmCoreModule } from "@agm/core";
+import { UserComponent } from './user/user.component';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { AgmCoreModule } from "@agm/core";
     DashboardComponent,
     ProductListComponent,
     ResponseTimeComponent,
-    ProductHealthComponent
+    ProductHealthComponent,
+    UserComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpModule,
+    NgxGaugeModule,
     ChartsModule,
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyDYhzzcAV9460gZUGKzGAP-G7_UDzh6QAc"
